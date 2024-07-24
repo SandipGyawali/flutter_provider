@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/pages/_theme.dart';
 import 'package:flutter_provider/pages/example_one_screen.dart';
-import 'package:flutter_provider/pages/sateful_screen.dart';
+import 'package:flutter_provider/pages/value_notify_listener.dart';
 import 'package:flutter_provider/provider/counter_provider.dart';
 import 'package:flutter_provider/provider/example_one_provider.dart';
 import 'package:flutter_provider/provider/favorite_provider.dart';
@@ -15,7 +14,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
         ChangeNotifierProvider(create: (_) => CounterProvider()),
         ChangeNotifierProvider(create: (_) => FavoriteProvider()),
-        ChangeNotifierProvider(create: (_) => ThemeProvider())
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
       ],
       child: const MyApp(),
     ),
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const ExampleOneScreen(),
+      home: NotifyListener(),
       themeMode: themeProvider.getThemeMode,
       theme: ThemeData(
         brightness: Brightness.light,
