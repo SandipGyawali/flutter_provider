@@ -1,21 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/pages/example_one_screen.dart';
-import 'package:flutter_provider/pages/value_notify_listener.dart';
-import 'package:flutter_provider/provider/counter_provider.dart';
-import 'package:flutter_provider/provider/example_one_provider.dart';
-import 'package:flutter_provider/provider/favorite_provider.dart';
+import 'package:flutter_provider/pages/login.dart';
+import 'package:flutter_provider/provider/index.dart';
 import 'package:flutter_provider/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(
     MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ExampleOneProvider()),
-        ChangeNotifierProvider(create: (_) => CounterProvider()),
-        ChangeNotifierProvider(create: (_) => FavoriteProvider()),
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-      ],
+      providers: Providers.providers,
       child: const MyApp(),
     ),
   );
@@ -30,7 +22,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NotifyListener(),
+      home: const Login(),
       themeMode: themeProvider.getThemeMode,
       theme: ThemeData(
         brightness: Brightness.light,
