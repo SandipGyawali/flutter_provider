@@ -30,7 +30,7 @@ class _ExampleOneScreen extends State<ExampleOneScreen> {
               max: 1,
               value: exampleOneProvider.value,
               onChanged: (value) {
-                exampleOneProvider.setValue = value;
+                exampleOneProvider.setValue(value);
               },
             ),
             Row(

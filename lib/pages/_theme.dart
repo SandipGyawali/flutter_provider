@@ -3,7 +3,7 @@ import 'package:flutter_provider/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class DarkTheme extends StatefulWidget {
-  const DarkTheme({Key? key}) : super(key: key);
+  const DarkTheme({super.key});
 
   @override
   State<DarkTheme> createState() => _DarkTheme();
@@ -21,6 +21,10 @@ class _DarkTheme extends State<DarkTheme> {
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
+        backgroundColor: themeProvider.getThemeMode == ThemeMode.dark
+            ? Colors.amber
+            : Colors.blue.shade400,
+        elevation: 20,
       ),
       body: Column(
         children: [

@@ -22,8 +22,11 @@ class _StatefulScreen extends State<StatefulScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Stateful Widget"),
-        backgroundColor: Colors.amber.shade200,
+        title: const Text(
+          "Stateful Widget",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.amber,
         elevation: 10,
       ),
       body: Column(
@@ -42,10 +45,12 @@ class _StatefulScreen extends State<StatefulScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
         onPressed: () {
           counterProvider.setCount();
         },
+        backgroundColor: Colors.amber,
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.add),
       ),
     );
   }

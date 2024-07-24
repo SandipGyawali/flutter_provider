@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/pages/_theme.dart';
+import 'package:flutter_provider/pages/example_one_screen.dart';
+import 'package:flutter_provider/pages/sateful_screen.dart';
 import 'package:flutter_provider/provider/counter_provider.dart';
 import 'package:flutter_provider/provider/example_one_provider.dart';
 import 'package:flutter_provider/provider/favorite_provider.dart';
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const DarkTheme(),
+      home: const ExampleOneScreen(),
       themeMode: themeProvider.getThemeMode,
       theme: ThemeData(
         brightness: Brightness.light,
