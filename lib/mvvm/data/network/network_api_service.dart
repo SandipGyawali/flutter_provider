@@ -25,8 +25,11 @@ class NetworkApiService extends BaseApiServices {
     dynamic responseJson;
     try {
       final response = await http
-          .post(Uri.parse(url), body: data)
-          .timeout(const Duration(seconds: 10));
+          .post(
+            Uri.parse(url),
+            body: data,
+          )
+          .timeout(const Duration(seconds: 20));
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException("No Internet Connection");
@@ -38,7 +41,7 @@ class NetworkApiService extends BaseApiServices {
 
 // response handler based on the status code.
 dynamic returnResponse(http.Response response) {
-  switch (response) {
+  switch (response.statusCode) {
     case 200:
       dynamic jsonResponse = jsonDecode(response.body);
       return jsonResponse;

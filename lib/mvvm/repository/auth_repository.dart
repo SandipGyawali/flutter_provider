@@ -12,7 +12,6 @@ class AuthRepository {
         AppUrl.loginEndPoint,
         data,
       );
-
       return response;
     } catch (err) {
       throw err;
