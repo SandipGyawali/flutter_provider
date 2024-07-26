@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_provider/mvvm/utils/routes/routes.dart';
 import 'package:flutter_provider/mvvm/utils/routes/routes_name.dart';
 import 'package:flutter_provider/mvvm/view_model/auth_view_model.dart';
+import 'package:flutter_provider/mvvm/view_model/home_view_model.dart';
 import 'package:flutter_provider/mvvm/view_model/user_view_model.dart';
 import 'package:provider/provider.dart';
+import "package:flutter_dotenv/flutter_dotenv.dart";
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: ".env");
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
-        ChangeNotifierProvider(create: (_) => UserViewModel())
+        ChangeNotifierProvider(create: (_) => UserViewModel()),
+        ChangeNotifierProvider(create: (_) => HomeViewModel())
       ],
       child: const MyApp(),
     ),
