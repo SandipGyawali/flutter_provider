@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/mvvm/resources/components/round_button.dart';
-import 'package:flutter_provider/mvvm/utils/routes/routes_name.dart';
 import 'package:flutter_provider/mvvm/utils/routes/utils.dart';
 import 'package:flutter_provider/mvvm/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
@@ -14,8 +13,10 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreen extends State<LoginScreen> {
   final ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
-  final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
+  final TextEditingController _email =
+      TextEditingController(text: "eve.holt@reqres.in");
+  final TextEditingController _password =
+      TextEditingController(text: "cityslicka");
 
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
@@ -94,10 +95,13 @@ class _LoginScreen extends State<LoginScreen> {
                     context,
                   );
                 } else {
-                  Map data = {"email": _email, "password": _password};
+                  Map data = {
+                    "email": _email.text.toString(),
+                    "password": _password.text.toString()
+                  };
 
                   authViewModel.loginApi(data, context);
-                  Navigator.pushReplacementNamed(context, RoutesName.home);
+                  // Navigator.pushReplacementNamed(context, RoutesName.home);
                 }
                 // Utils.snackBar("No Internet Connection", context);
               },
